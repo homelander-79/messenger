@@ -1,5 +1,6 @@
 import sqlite3
 from sqlite3 import Error
+
 def create_connection(db_file):
     conn = None
     try:
@@ -7,6 +8,7 @@ def create_connection(db_file):
     except Error as e:
         print(e)
     return conn
+
 def creat_table(conn):
     c=conn.cursor()
     c.execute("""
@@ -32,6 +34,7 @@ def creat_table(conn):
     references USER(user_name)
     on update restrict
     on delete restrict)""")
+
 if __name__=='__main__':
-    conn=create_connection(r"D:\program\network\database\sqllite.db")
+    conn=create_connection(r"C:\Users\mostafa\Desktop\messenger\database\sqlite.db")
     creat_table(conn)

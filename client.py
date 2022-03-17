@@ -65,7 +65,7 @@ def page(client,name):
         print('-------------------------------------------------------')
         x=int(input('1.pv message\n2.group message\n3.broadcast message \n4.new group\n5.all message\n6.log out\n'))
         if x == 1:
-            recv_name=input('please inter resever name exist in network:')
+            recv_name=input('please enter resever name exist in network:')
             send(client,[2,1,name,recv_name])
             data=test(1,1)
             if data[0]=='ok':
@@ -99,7 +99,6 @@ def page(client,name):
             message=input('enter your message :\b')
             send(client,[2,3,name,message])
             print('done!')
-            print('1')
             page(client,name)
         if x == 4:
             group_name=input('enter group name(must be unique):')
@@ -131,7 +130,7 @@ def page(client,name):
                 for i in data:
                     print('-------------------------------------------------------')
                     print('id ',i[2],'  from ',i[0],' to ',i[1],':')
-                    print('message=',i[3])
+                    print('message=',i[4])
                     print('time',i[5])
                     print('-------------------------------------------------------')
                 try:    

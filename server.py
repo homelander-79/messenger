@@ -1,4 +1,3 @@
-from os import name
 import socket
 import querys
 import pickle
@@ -15,8 +14,8 @@ def unicast(group,sender,online,message):
 
 def threaded(con,online_member):
     while True:
-            conn=create_tables.create_connection(r"D:\program\network\database\sqllite.db")
-            x=reseve(con)
+            conn=create_tables.create_connection(r"")
+            x=reseve(con) 
             if x[0]==1:
                 if x[1]==1:
                     y=querys.sign_in(x[2],x[3],conn)
@@ -75,7 +74,6 @@ def threaded(con,online_member):
                     data=reseve(con)
                     if data:
                         m=querys.save_message(data[0],data[1],data[2],conn,None,0)
-                        print(m,'nnnnn')
                         if m==False:
                             send(con,[0])
                         else :
@@ -110,7 +108,6 @@ def threaded(con,online_member):
                             lock.acquire()
                             querys.save_message(x[2],None,x[3],conn,i[0],0)
                             lock.release()
-                print('2')
                 if x[1]==4:
                     m=querys.check_group_name(x[3],conn)
                     if m==True:
@@ -125,7 +122,6 @@ def threaded(con,online_member):
                         send(con,[0])
                 if x[1]==5:
                     m=querys.show_message(x[2],conn)
-                    print
                     send(con,m)
                     if m[0]==-3:
                         threaded(con,online_member)

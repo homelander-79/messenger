@@ -126,5 +126,5 @@ def unsend_message(name,conn):
     return row 
 
 if __name__=="__main__":
-    conn=create_tables.create_connection(r"D:\program\network\database\sqllite.db")
+    conn=create_tables.create_connection(r"C:\Users\mostafa\Desktop\messenger\database\sqlite.db")
     #print(conn.cursor().execute('''select * from users''').fetchall())
